@@ -16,8 +16,9 @@ import asyncio
 import json
 
 # ── CONFIGURATION ─────────────────────────────────────────────────────────────
+# Une seule variable nécessaire sur Railway : DISCORD_TOKEN
 TOKEN = os.getenv("DISCORD_TOKEN")
-PREFIX = os.getenv("BOT_PREFIX", "!")
+PREFIX = "!" # Fixé à ! pour éviter les variables inutiles
 
 # ── INTENTS ───────────────────────────────────────────────────────────────────
 intents = discord.Intents.all()  # Activer tous les intents pour une détection maximale
@@ -162,6 +163,9 @@ async def load_cogs():
             print(f"  ❌ Erreur module {cog} : {e}")
 
 async def main():
+    if not TOKEN:
+        print("❌ ERREUR : La variable d'environnement DISCORD_TOKEN est manquante !")
+        return
     async with bot:
         await load_cogs()
         await bot.start(TOKEN)
