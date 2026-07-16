@@ -1,0 +1,12 @@
+{
+  "name": "nova-discord-bots",
+  "version": "1.0.0",
+  "description": "Discord bots collection",
+  "main": "honeypot.js",
+  "scripts": {
+    "start": "node honeypot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.11.0"
+  }
+}

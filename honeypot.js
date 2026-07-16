@@ -12,10 +12,9 @@ const client = new Client({
   ]
 });
 
-// ID du salon honeypot
-const HONEYPOT_CHANNEL = "CHANNEL_ID";
-// ID du salon de logs
-const LOG_CHANNEL = "LOG_CHANNEL_ID";
+// Utilisation des variables d'environnement pour Railway
+const HONEYPOT_CHANNEL = process.env.HONEYPOT_CHANNEL;
+const LOG_CHANNEL = process.env.LOG_CHANNEL;
 
 client.once("ready", () => {
   console.log(`${client.user.tag} est connecté.`);
@@ -52,4 +51,4 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-client.login("TON_TOKEN");
+client.login(process.env.DISCORD_TOKEN);
